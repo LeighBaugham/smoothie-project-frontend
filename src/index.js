@@ -1,7 +1,6 @@
-const customForm = document.getElementById("custom-smoothie")
-
-document.addEventListener('DOMContentLoaded', () => {
-    customForm.addEventListener('submit', handleNewSmoothie)             
+const customForm = document.getElementById("custom-smoothie") 
+document.addEventListener('DOMContentLoaded', () => {   
+  customForm.addEventListener('submit', handleNewSmoothie)         
     renderAllSmoothies()
 })
 
@@ -17,14 +16,35 @@ function renderSmoothie(smoothie){
     card.setAttribute('class', 'card')
     const h4 = document.createElement('h4')
     h4.textContent = smoothie.name
+    const image = document.createElement('img')
+    image.src = smoothie.image
+    const p = document.createElement('p')
+    p.textContent = smoothie.ingredients
+    const likes = document.createElement('p')
+    likes.textContent = `Likes: ${smoothie.likes}`
+    const category = document.createElement('p')
+    category.textContent = `- ${smoothie.category}`
+    const creator = document.createElement('p')
+    creator.textContent = smoothie.created_by
+    const likeButton = document.createElement('button')
+    likeButton.textContent = "Like <3"
+    likeButton.dataset.id = smoothie.id
+    likeButton.addEventListener('click', handleLikeButton)
     menu.appendChild(card)
     card.appendChild(h4)
+    card.appendChild(p)
+    card.appendChild(likes)
+    card.appendChild(creator)
+    card.appendChild(category)
+    card.appendChild(likeButton)
+}
+
+function handleLikeButton(e) {
+  console.log(e.target)
 }
 
 function handleNewSmoothie(event) {
   event.preventDefault()
-    console.log(event)
-    // debugger;
       let fetchBody = {
           
           headers:{
