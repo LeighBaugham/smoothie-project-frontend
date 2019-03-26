@@ -18,7 +18,7 @@ function renderSmoothie(smoothie){
     const menu = document.getElementById("smoothie-menu")
     const card = document.createElement('card')
     card.setAttribute('class', 'card')
-    const h4 = document.createElement('h4')
+    const h4 = document.createElement('h2')
     h4.textContent = smoothie.name
     const image = document.createElement('img')
     image.src = smoothie.image
