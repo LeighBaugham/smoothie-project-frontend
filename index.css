@@ -24,6 +24,12 @@
     box-shadow: 3px 4px #F5B995
   }
 
+  .smoothie-image {
+    justify-self: center;
+    height: 12rem;
+    width: auto;
+  }
+
   button {
     position: relative;
     background-color: #F77D73;

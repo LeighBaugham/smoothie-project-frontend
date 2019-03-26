@@ -15,12 +15,14 @@ function renderAllSmoothies(){
 }
 
 function renderSmoothie(smoothie){
+    document.innerHTML = ''
     const menu = document.getElementById("smoothie-menu")
     const card = document.createElement('card')
     card.setAttribute('class', 'card')
     const h4 = document.createElement('h2')
     h4.textContent = smoothie.name
     const image = document.createElement('img')
+    image.setAttribute('class', 'smoothie-image')
     image.src = smoothie.image
     const p = document.createElement('p')
     p.textContent = smoothie.ingredients
@@ -39,9 +41,9 @@ function renderSmoothie(smoothie){
     addOrderButton.textContent = "Order"
     addOrderButton.dataset.id = smoothie.id
     addOrderButton.addEventListener('click', addSmoothieOrder)
-
     menu.appendChild(card)
     card.appendChild(h4)
+    card.appendChild(image)
     card.appendChild(p)
     card.appendChild(likes)
     card.appendChild(creator)
@@ -56,7 +58,7 @@ function handleLikeButton(e) {
 
 function addSmoothieOrder(smoothie) {
     console.log(event)
-    const smoothieName = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+    const smoothieName = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
     
     const h3 = document.createElement('h3')
     h3.textContent = smoothieName
@@ -65,11 +67,9 @@ function addSmoothieOrder(smoothie) {
     orderList.appendChild(h3)
 }
 
-
 function handleNewSmoothie(event) {
-  event.preventDefault()
+  event.preventDefault()  
       let fetchBody = {
-          
           headers:{
             "Content-Type": "application/json",
             Accept: "application/json"
@@ -78,14 +78,12 @@ function handleNewSmoothie(event) {
           body: JSON.stringify({
             name: event.target.elements[0].value,
             ingredients: event.target.elements[1].value,
-            image_url: event.target.elements[2].value,
+            likes: 0,
+            image: event.target.elements[2].value,
             created_by: event.target.elements[3].value,
             category: event.target.elements[4].value
-
-
           })
-          }             
-      
+          }            
       console.log(fetchBody)
        fetch('http://localhost:3000/smoothies', fetchBody)
        .then(res => res.json())
