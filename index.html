@@ -5,11 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TWO SMOOTHIE QUEENS</title>
+  <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
   <div class="container">
     <div class="header">
       <h1 id="heading">Welcome to TWO SMOOTHIE QUEENS</h1>
+    </div>
+
+    <div class="custom">
+      <h2>Enter Username:</h2>
+      <form id="enter-user">
+        <label>Username:</label>
+        <input type="text" name="username" id="usernamename">
+        <br/>
+        <input type="submit" value="Log In"></input>
+      </form>
+    </div>
+
+    <div id='smoothie-header'>
+      <img src="https://media.giphy.com/media/xTiQytOEqr2U33lYkg/giphy.gif" alt="smoothie-header">
     </div>
 
     <div class="order">
@@ -31,7 +47,7 @@
         <label>Name:</label>
         <input type="text" name="name" id="smoothie-name">
         <br/>
-        <label>INGREDIENTS:</label>
+        <label>Ingredients:</label>
         <textarea id="ingredients" name="ingredients" rows="5" cols="33"></textarea>
         <br/>
         <label>Image URL:</label>

@@ -1,4 +1,5 @@
 const customForm = document.getElementById("custom-smoothie")
+const orderList = document.getElementById("order-list")
 
 document.addEventListener('DOMContentLoaded', () => {
     customForm.addEventListener('submit', handleNewSmoothie)             
@@ -20,6 +21,20 @@ function renderSmoothie(smoothie){
     menu.appendChild(card)
     card.appendChild(h4)
 }
+
+function addSmoothieOrder(burger) {
+    console.log(event)
+    const smoothieDescript = event.target.previousElementSibling.innerText
+    const smoothieName = event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText
+    const smoothieImage = event.target.previousElementSibling.previousElementSibling.currentSrc
+    
+    const h3 = document.createElement('h3')
+    h3.textContent = burgerName
+    h3.setAttribute('class', 'burger_title')
+
+    orderList.appendChild(h3)
+}
+
 
 function handleNewSmoothie(event) {
   event.preventDefault()
