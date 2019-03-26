@@ -1,0 +1,13 @@
+#smoothie-header {
+    display: flex;
+    justify-content: left;
+    background: #515DA2;
+    opacity: .8;
+    height: 7rem;
+    padding: 1rem;
+  }
+  
+  #smoothie-header img {
+    height: 6rem;
+    width: auto;
+  }
