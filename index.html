@@ -1,12 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TWO SMOOTHiE QUEENS</title>
-    <script src="src/index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TWO SMOOTHIE QUEENS</title>
 </head>
 <body>
-    
+  <div class="container">
+    <div class="header">
+      <h1 id="heading">Welcome to TWO SMOOTHIE QUEENS</h1>
+    </div>
+
+    <div class="order">
+      <h2>Your Order</h2>
+      <ul id="order-list">
+      </ul>
+    </div>
+
+    <div class="menu">
+      <h2>SMOOTHIE Menu</h2>
+      <div id="smoothie-menu">
+      </div>
+    </div>
+
+    <div class="custom">
+      <h2>Custom SMOOTHIE:</h2>
+      <form id="custom-smoothie">
+        <label>Name:</label>
+        <input type="text" name="name" id="smoothie-name">
+        <br/>
+        <label>INGREDIENTS:</label>
+        <textarea id="story" name="story" rows="5" cols="33"></textarea>
+        <br/>
+        <label>Image URL:</label>
+        <input type="text" name="url" id="smoothie-image">
+        <br/>
+        <label>Created By:</label>
+        <input type="text" name="description" id="created-by">
+        <br/>
+        <label>Category:</label>
+        <input type="text" name="description" id="smoothie-category">
+        <br/>
+        <br/>
+        <input type="submit" value="Submit Order"></input>
+      </form>
+    </div>
+  </div>
 </body>
+<script src="src/index.js" charset="utf-8"></script>
 </html>
