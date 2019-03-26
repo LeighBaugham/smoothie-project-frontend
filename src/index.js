@@ -1,5 +1,3 @@
-
-
 const orderList = document.getElementById("order-list")
 
 const customForm = document.getElementById("custom-smoothie") 
@@ -27,7 +25,9 @@ function renderSmoothie(smoothie){
     const p = document.createElement('p')
     p.textContent = smoothie.ingredients
     const likes = document.createElement('p')
-    likes.textContent = `Likes: ${smoothie.likes}`
+    likes.textContent = `Likes: `
+    const likesSpan = document.createElement('span')
+    likesSpan.textContent = smoothie.likes
     const category = document.createElement('p')
     category.textContent = `- ${smoothie.category}`
     const creator = document.createElement('p')
@@ -45,6 +45,7 @@ function renderSmoothie(smoothie){
     card.appendChild(h4)
     card.appendChild(image)
     card.appendChild(p)
+    likes.appendChild(likesSpan)
     card.appendChild(likes)
     card.appendChild(creator)
     card.appendChild(category)
@@ -53,7 +54,17 @@ function renderSmoothie(smoothie){
 }
 
 function handleLikeButton(e) {
-  console.log(e.target)
+  let newLike = (parseInt(e.target.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('span').innerHTML++))
+  fetch('http://localhost:3000/smoothies', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      likes: newLike 
+    })
+  })
 }
 
 function addSmoothieOrder(smoothie) {
