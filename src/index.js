@@ -34,6 +34,12 @@ function renderSmoothie(smoothie){
     likeButton.textContent = "Like <3"
     likeButton.dataset.id = smoothie.id
     likeButton.addEventListener('click', handleLikeButton)
+
+    const addOrderButton = document.createElement('button')
+    addOrderButton.textContent = "Order"
+    addOrderButton.dataset.id = smoothie.id
+    addOrderButton.addEventListener('click', addSmoothieOrder)
+
     menu.appendChild(card)
     card.appendChild(h4)
     card.appendChild(p)
@@ -41,21 +47,20 @@ function renderSmoothie(smoothie){
     card.appendChild(creator)
     card.appendChild(category)
     card.appendChild(likeButton)
+    card.appendChild(addOrderButton)
 }
 
 function handleLikeButton(e) {
   console.log(e.target)
 }
 
-function addSmoothieOrder(burger) {
+function addSmoothieOrder(smoothie) {
     console.log(event)
-    const smoothieDescript = event.target.previousElementSibling.innerText
-    const smoothieName = event.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText
-    const smoothieImage = event.target.previousElementSibling.previousElementSibling.currentSrc
+    const smoothieName = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
     
     const h3 = document.createElement('h3')
-    h3.textContent = burgerName
-    h3.setAttribute('class', 'burger_title')
+    h3.textContent = smoothieName
+    h3.setAttribute('class', 'smoothie_title')
 
     orderList.appendChild(h3)
 }
