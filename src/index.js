@@ -1,6 +1,7 @@
 const customForm = document.getElementById("custom-smoothie")
 
 document.addEventListener('DOMContentLoaded', () => {
+    customForm.addEventListener('submit', handleNewSmoothie)             
     renderAllSmoothies()
 })
 
@@ -19,9 +20,6 @@ function renderSmoothie(smoothie){
     menu.appendChild(card)
     card.appendChild(h4)
 }
-
-
-customForm.addEventListener('submit', handleNewSmoothie)
 
 function handleNewSmoothie(event) {
   event.preventDefault()
