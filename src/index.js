@@ -1,10 +1,10 @@
-
-
 const orderList = document.getElementById("order-list")
-
 const customForm = document.getElementById("custom-smoothie") 
+const userForm = document.getElementById("username")
+
 document.addEventListener('DOMContentLoaded', () => {   
-  customForm.addEventListener('submit', handleNewSmoothie)         
+  customForm.addEventListener('submit', handleNewSmoothie) 
+  userForm.addEventListener('submit', handleNewUser)        
     renderAllSmoothies()
 })
 
@@ -27,7 +27,10 @@ function renderSmoothie(smoothie){
     const p = document.createElement('p')
     p.textContent = smoothie.ingredients
     const likes = document.createElement('p')
-    likes.textContent = `Likes: ${smoothie.likes}`
+    likes.textContent = `Likes: `
+    const likesSpan = document.createElement('span')
+    likesSpan.id = smoothie.id
+    likesSpan.textContent = smoothie.likes
     const category = document.createElement('p')
     category.textContent = `- ${smoothie.category}`
     const creator = document.createElement('p')
@@ -36,7 +39,7 @@ function renderSmoothie(smoothie){
     likeButton.textContent = "Like <3"
     likeButton.dataset.id = smoothie.id
     likeButton.addEventListener('click', handleLikeButton)
-
+    
     const addOrderButton = document.createElement('button')
     addOrderButton.textContent = "Order"
     addOrderButton.dataset.id = smoothie.id
@@ -45,6 +48,7 @@ function renderSmoothie(smoothie){
     card.appendChild(h4)
     card.appendChild(image)
     card.appendChild(p)
+    likes.appendChild(likesSpan)
     card.appendChild(likes)
     card.appendChild(creator)
     card.appendChild(category)
@@ -53,7 +57,22 @@ function renderSmoothie(smoothie){
 }
 
 function handleLikeButton(e) {
-  console.log(e.target)
+  
+  let newLike = (parseInt(e.target.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('span').innerHTML))
+  let id = e.target.dataset.id
+
+  let fetchBody = {
+    headers: {
+      "Content-Type": "application/json",
+    Accept: "application/json"},
+    method: 'PATCH',
+    body:JSON.stringify({
+      likes: ++newLike
+    })
+  }
+  e.target.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('span').innerHTML = newLike
+  fetch(`http://localhost:3000/smoothies/${id}`, fetchBody)
+        //  .then(resp => console.log(resp))
 }
 
 function addSmoothieOrder(smoothie) {
@@ -90,4 +109,9 @@ function handleNewSmoothie(event) {
        .then(smoothie => renderSmoothie(smoothie))
        event.target.reset()
   }
+
+  function handleNewUser(e){ 
+    console.log(e)
+ }
+
 
