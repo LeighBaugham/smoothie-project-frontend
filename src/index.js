@@ -1,8 +1,10 @@
 const orderList = document.getElementById("order-list")
-
 const customForm = document.getElementById("custom-smoothie") 
+const logInButton = document.getElementById("enter-user")
+
 document.addEventListener('DOMContentLoaded', () => {   
-  customForm.addEventListener('submit', handleNewSmoothie)         
+  customForm.addEventListener('submit', handleNewSmoothie) 
+  logInButton.addEventListener('submit', handleNewUser)        
     renderAllSmoothies()
 })
 
@@ -107,4 +109,13 @@ function handleNewSmoothie(event) {
        .then(smoothie => renderSmoothie(smoothie))
        event.target.reset()
   }
+
+  function handleNewUser(e){ 
+    e.preventDefault()
+    let userName= `Welcome, ${e.target.username.value}!`
+    const h2 = document.getElementById('welcome')
+    h2.append(userName)
+    e.target.reset()
+ }
+
 

@@ -12,14 +12,16 @@
   <div class="container">
       <div id='smoothie-header'>
     <h1 id="heading">Welcome to TWO SMOOTHIE QUEENS</h1>
+    <br>
           <img src="https://media.giphy.com/media/xTiQytOEqr2U33lYkg/giphy.gif" alt="smoothie-header">
     <div class="custom">
       <form id="enter-user">
         <label>Username:</label>
-        <input type="text" name="username" id="username">
-        <br/>
-        <input type="submit" value="Log In"></input>
+        <input type="text" name="username" id="user-name">
+        <br>
+        <input id="log-in" type="submit" value="Log In"></input>
       </form>
+      <h2 id="welcome"></h2>
     </div>      
     </div>
 
@@ -38,7 +40,7 @@
     <!-- <div class="custom"> -->
       
       <h2>Custom SMOOTHIE:</h2>
-      <form class= "ui form" id="custom-smoothie">
+      <form class= "form" id="custom-smoothie">
           <div class="field">
         <label>Name:</label>
         <input type="text" name="name" id="smoothie-name">
@@ -54,10 +56,10 @@
         <br/>
         <label>Category:</label>
         <select id = "smoothie-category">
-          <option value = "1">wellness blend</option>
-          <option value = "2">fitness</option>
-          <option value = "3">take a break</option>
-          <option value = "4">kids blend</option>
+          <option value = "wellness blend">wellness blend</option>
+          <option value = "fitness">fitness</option>
+          <option value = "take a break">take a break</option>
+          <option value = "kids blend">kids blend</option>
         </select>
         <br/>
         <br/>
@@ -67,10 +69,4 @@
   </div>
 </body>
 <script src="src/index.js" charset="utf-8"></script>
-<!-- <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<script src="semantic/dist/semantic.min.js"></script> -->
 </html>
