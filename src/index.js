@@ -36,12 +36,12 @@ function renderSmoothie(smoothie){
     const creator = document.createElement('p')
     creator.textContent = smoothie.created_by
     const likeButton = document.createElement('button')
-    likeButton.textContent = "Like <3"
+    likeButton.innerHTML = `Like 💖`
     likeButton.dataset.id = smoothie.id
     likeButton.addEventListener('click', handleLikeButton)
     
     const addOrderButton = document.createElement('button')
-    addOrderButton.textContent = "Order"
+    addOrderButton.textContent = "Order 🍹"
     addOrderButton.dataset.id = smoothie.id
     addOrderButton.addEventListener('click', addSmoothieOrder)
     menu.appendChild(card)
