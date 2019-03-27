@@ -27,6 +27,7 @@ function renderSmoothie(smoothie){
     const likes = document.createElement('p')
     likes.textContent = `Likes: `
     const likesSpan = document.createElement('span')
+    likesSpan.id = smoothie.id
     likesSpan.textContent = smoothie.likes
     const category = document.createElement('p')
     category.textContent = `- ${smoothie.category}`
@@ -36,7 +37,7 @@ function renderSmoothie(smoothie){
     likeButton.textContent = "Like <3"
     likeButton.dataset.id = smoothie.id
     likeButton.addEventListener('click', handleLikeButton)
-
+    
     const addOrderButton = document.createElement('button')
     addOrderButton.textContent = "Order"
     addOrderButton.dataset.id = smoothie.id
@@ -54,17 +55,22 @@ function renderSmoothie(smoothie){
 }
 
 function handleLikeButton(e) {
-  let newLike = (parseInt(e.target.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('span').innerHTML++))
-  fetch('http://localhost:3000/smoothies', {
-    method: 'POST',
+  
+  let newLike = (parseInt(e.target.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('span').innerHTML))
+  let id = e.target.dataset.id
+
+  let fetchBody = {
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      likes: newLike 
+      "Content-Type": "application/json",
+    Accept: "application/json"},
+    method: 'PATCH',
+    body:JSON.stringify({
+      likes: ++newLike
     })
-  })
+  }
+  e.target.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('span').innerHTML = newLike
+  fetch(`http://localhost:3000/smoothies/${id}`, fetchBody)
+        //  .then(resp => console.log(resp))
 }
 
 function addSmoothieOrder(smoothie) {
