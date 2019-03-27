@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>TWO SMOOTHIE QUEENS</title>
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100" rel="stylesheet">
+
 
 </head>
 <body>
@@ -30,22 +33,22 @@
     </div>
   </div>
 
-    <div class="order">
+    <div id= "your-order" class="order">
       <h2>Your Order</h2>
       <ul id="order-list">
       </ul>
     </div>
 
-    <div class="menu">
-      <h2>SMOOTHIE Menu</h2>
+    <div id= "the-smoothie-menu" class="menu">
+      <h2>Smoothie Menu</h2>
       <div id="smoothie-menu">
       </div>
     </div>
 
-    <!-- <div class="custom"> -->
+    <div id= "create-a-smoothie" class="custom">
       
-      <h2>Custom SMOOTHIE:</h2>
-      <form class= "form" id="custom-smoothie">
+      <h2>Create a Smoothie:</h2>
+      <form class= "ui form" id="custom-smoothie">
           <div class="field">
         <label>Name:</label>
         <br>
@@ -75,9 +78,13 @@
         <br/>
         <input type="submit" value="Submit Order"></input>
       </form>
-    <!-- </div> -->
+    </div>
   </div>
 </body>
 <script src="src/index.js" charset="utf-8"></script>
-<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
 </html>

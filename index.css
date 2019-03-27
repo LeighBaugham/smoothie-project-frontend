@@ -5,6 +5,7 @@
     opacity: .8;
     height: 6rem;
     padding: 1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
   
   #smoothie-header img {
@@ -19,6 +20,20 @@
     opacity: .8;
     height: 4rem;
     padding: 1rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  #your-order{
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  
+
+  #the-smoothie-menu{
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  #create-a-smoothie{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
   }
 
   .card {
@@ -26,10 +41,11 @@
     border: grey solid 1px;
     padding: 1rem;
     width: 25rem;
-    height: 35rem;
+    height: auto;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 3px 4px #F5B995
+    box-shadow: 4px 5px #F5B995;
+    font-family: 'IBM Plex Sans', sans-serif;
   }
 
   .smoothie-image {
@@ -39,7 +55,7 @@
   }
 
   button {
-    position: relative;
+    justify-self: center;
     background-color: #F77D73;
     border: none;
     border-radius: 5px;
@@ -48,4 +64,9 @@
     color: whitesmoke;
     font-size: 18px;
     justify-self: center;
+    margin: .2rem .2rem;
+  } 
+
+  body {
+    margin: 2rem 2rem;
   }
