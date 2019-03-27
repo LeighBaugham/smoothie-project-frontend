@@ -10,20 +10,25 @@
 </head>
 <body>
   <div class="container">
+    <div class="header-container">
       <div id='smoothie-header'>
-    <h1 id="heading">Welcome to TWO SMOOTHIE QUEENS</h1>
-    <br>
           <img src="https://media.giphy.com/media/xTiQytOEqr2U33lYkg/giphy.gif" alt="smoothie-header">
+          <h1 id="heading">Welcome to TWO SMOOTHIE QUEENS</h1>
+    
+      </div>
+  
+    <div id="user-container"></div>
     <div class="custom">
       <form id="enter-user">
         <label>Username:</label>
         <input type="text" name="username" id="user-name">
-        <br>
         <input id="log-in" type="submit" value="Log In"></input>
+        <h2 id="welcome"></h2><br>
       </form>
-      <h2 id="welcome"></h2>
+      
     </div>      
     </div>
+  </div>
 
     <div class="order">
       <h2>Your Order</h2>
@@ -43,18 +48,23 @@
       <form class= "form" id="custom-smoothie">
           <div class="field">
         <label>Name:</label>
+        <br>
         <input type="text" name="name" id="smoothie-name">
         <br/>
         <label>Ingredients:</label>
+        <br>
         <textarea id="ingredients" name="ingredients" rows="5" cols="33"></textarea>
         <br/>
         <label>Image URL:</label>
+        <br>
         <input type="text" name="url" id="smoothie-image">
         <br/>
         <label>Created By:</label>
+        <br>
         <input type="text" name="created-by" id="created-by">
         <br/>
         <label>Category:</label>
+        <br>
         <select id = "smoothie-category">
           <option value = "wellness blend">wellness blend</option>
           <option value = "fitness">fitness</option>
