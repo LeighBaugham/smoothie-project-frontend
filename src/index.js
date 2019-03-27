@@ -36,14 +36,19 @@ function renderSmoothie(smoothie){
     const creator = document.createElement('p')
     creator.textContent = smoothie.created_by
     const likeButton = document.createElement('button')
+    likeButton.setAttribute('class', 'ui button')
     likeButton.innerHTML = `Like 💖`
     likeButton.dataset.id = smoothie.id
     likeButton.addEventListener('click', handleLikeButton)
-    
     const addOrderButton = document.createElement('button')
     addOrderButton.textContent = "Order 🍹"
     addOrderButton.dataset.id = smoothie.id
     addOrderButton.addEventListener('click', addSmoothieOrder)
+    const deleteButton = document.createElement('button')
+    deleteButton.dataset.id = smoothie.id
+    deleteButton.textContent = `Delete 👎`
+    deleteButton.addEventListener('click', handleDeleteButton)
+
     menu.appendChild(card)
     card.appendChild(h4)
     card.appendChild(image)
@@ -54,6 +59,7 @@ function renderSmoothie(smoothie){
     card.appendChild(category)
     card.appendChild(likeButton)
     card.appendChild(addOrderButton)
+    card.appendChild(deleteButton)
 }
 
 function handleLikeButton(e) {
@@ -80,7 +86,7 @@ function addSmoothieOrder(smoothie) {
     const smoothieName = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText
     
     const h3 = document.createElement('h3')
-    h3.textContent = smoothieName
+    h3.textContent = `🍑 ${smoothieName}`
     h3.setAttribute('class', 'smoothie_title')
 
     orderList.appendChild(h3)
@@ -117,5 +123,17 @@ function handleNewSmoothie(event) {
     h2.append(userName)
     e.target.reset()
  }
+
+ function handleDeleteButton(e){
+   e.target.parentNode.remove()
+   const id = e.target.dataset.id
+
+   fetch(`http://localhost:3000/smoothies/${id}`,
+   {
+     method:'DELETE'
+   })
+   .then(res => console.log(res))
+ }
+ 
 
 
